@@ -24,7 +24,7 @@ public class PagamentoResource {
 
   @PUT
   @Path("/{id}")
-  public  Uni<Pagamento> confirma(Long id) {
+  public Uni<Pagamento> confirma(Long id) {
     return Panache.withTransaction(() ->
             Pagamento.<Pagamento>findById(id)
                     .onItem().ifNotNull().invoke(pagamento -> {
